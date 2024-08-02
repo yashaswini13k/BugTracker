@@ -1,0 +1,38 @@
+<div class="dialog-content">
+<table class="dialog-table">
+    <tr>
+      <td colspan="2">
+        <h2 style="text-align: center; color: rgb(243, 208, 8);">{{ data.name }}</h2>
+      </td>
+    </tr>
+    <tr>
+      <td style="color: #bfcbce;"><strong>Assignee:</strong></td>
+      <td style="color: #bfcbce;">{{ data.assignee }}</td>
+    </tr>
+    <tr>
+      <td style="color: #bfcbce;"><strong>Assigned By:</strong></td>
+      <td style="color: #bfcbce;">{{ data.assignedby }}</td>
+    </tr>
+    <tr>
+      <td style="color: #bfcbce;"><strong>Date:</strong></td>
+      <td style="color: #bfcbce;">{{ data.date }}</td>
+    </tr>
+    <tr>
+      <td style="color: #bfcbce;"><strong>Time:</strong></td>
+      <td style="color: #bfcbce;">{{ data.time }}</td>
+    </tr>
+    <tr>
+      <td style="color: #bfcbce;"><strong>Status:</strong></td>
+      <td style="color: #bfcbce;">{{ data.status }}</td>
+    </tr>
+    <tr>
+      <td style="color: #bfcbce;"><strong>Details:</strong></td>
+      <td style="color: #bfcbce;">{{ data.details }}</td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align: center;">
+        <button mat-button (click)="onClose()">Close</button>
+      </td>
+    </tr>
+  </table>
+</div>

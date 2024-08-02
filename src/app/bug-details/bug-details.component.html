@@ -1,0 +1,69 @@
+<div *ngIf="bug" class="bug-details-container">
+  <!-- Display bug details -->
+  <h2>{{ bug.title }}</h2>
+  <p><strong>Issue No:</strong> {{ bug.issueNo }}</p>
+  <p><strong>Project No:</strong> {{ bug.projectid }}</p>
+  <p><strong>Type:</strong> {{ bug.type }}</p>
+  <p><strong>Details:</strong> {{ bug.description }}</p>
+  <p><strong>Priority:</strong> {{ bug.priority }}</p>
+
+  <hr class="divider">
+  
+  <!-- Button to open Add Comment modal -->
+  <button class="btn btn-primary" (click)="openAddCommentModal()">Add Comment</button>
+  
+    <!-- Modal backdrop and dialog -->
+    <div class="modal-backdrop" *ngIf="modalOpen">
+      <div class="modal-dialog"><br>
+        <h3 class="modal-title">Add Comment</h3>
+        <div class="modal-body">
+          <form (ngSubmit)="addComment()" #commentForm="ngForm">
+            <!-- Form fields for comment -->
+            <div class="form-group" [class.has-error]="commentForm.controls['name']?.invalid && commentForm.controls['name']?.touched">
+              <label>Name*</label>
+              <input type="text" class="form-control" [(ngModel)]="comment.name" name="name" required>
+              <div *ngIf="commentForm.controls['name']?.invalid && commentForm.controls['name']?.touched" class="help-block">
+                Name is required</div>
+            </div>
+            <div class="form-group" [class.has-error]="commentForm.controls['assignee']?.invalid && commentForm.controls['assignee']?.touched">
+              <label>Assignee*</label>
+              <input type="text" class="form-control" [(ngModel)]="comment.assignee" name="assignee" required>
+              <div *ngIf="commentForm.controls['assignee']?.invalid && commentForm.controls['assignee']?.touched" class="help-block">Assignee is required</div>
+            </div>
+            <div class="form-group" [class.has-error]="commentForm.controls['assignedby']?.invalid && commentForm.controls['assignedby']?.touched">
+              <label>Assigned by*</label>
+              <input type="text" class="form-control" [(ngModel)]="comment.assignedby" name="assignedby" required>
+              <div *ngIf="commentForm.controls['assignedby']?.invalid && commentForm.controls['assignedby']?.touched" class="help-block">Assigned by is required</div>
+            </div>
+            <div class="form-group">
+              <label>Status*</label>
+              <select class="form-control" [(ngModel)]="comment.status" name="status" required>
+                <option>Opened</option>
+                <option>Closed</option>
+                <option>In-Progress</option>
+                <option>Re-Test</option>
+              </select>
+            </div>
+            <div class="form-group" [class.has-error]="commentForm.controls['details']?.invalid && commentForm.controls['details']?.touched">
+              <label>Details*</label>
+              <textarea class="form-control" rows="4" [(ngModel)]="comment.details" name="details" required></textarea>
+              <div *ngIf="commentForm.controls['details']?.invalid && commentForm.controls['details']?.touched" class="help-block">Details are required</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button> &nbsp;
+            <button type="button" class="btn btn-outline" (click)="closeModal()">Cancel</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  <h3>Comments:</h3>
+<ul class="comments-list">
+  <!-- Display comments in reverse order (newest first) -->
+  <li *ngFor="let comment of bug?.comments?.slice()?.reverse()">
+    <h4 (click)="openCommentDetailsDialog(comment)">
+      {{ comment.name }} <h4 style="text-align: right;"> {{ comment.date }}  [ {{ comment.time }} ]</h4>
+    </h4>
+  
+  </li>
+</ul>
+</div>

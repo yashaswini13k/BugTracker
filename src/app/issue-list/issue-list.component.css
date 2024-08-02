@@ -1,0 +1,101 @@
+
+.button-container {
+    display: flex;
+    align-items: center; /* Align items vertically center */
+    gap: 10px; /* Space between buttons */
+  }
+.btn {
+    background-color: #6F90AF;;
+    color: #150722;
+    border: 1px solid rgb(0, 0, 0);
+    font-style: inherit;
+    font-family: Poppins;
+    box-shadow: #41330d;
+    padding: 5px;
+    border-radius: 4px;
+    /* font-variant-caps:all-small-caps; */
+    
+}
+button:hover {
+    background-color:  #516e88;
+}
+.h{
+    text-align: center;
+    padding-left: 6px;
+    border-right: 1.5px solid rgb(78, 73, 73);
+    background-color: #303655;
+    font-size: 20px;
+    color:rgb(219, 219, 219)
+    
+}
+table {
+    background-color: #303655;
+    /* border-right: 1px solid rgb(78, 73, 73); */
+    text-align: center;
+    /* padding-top: 5px; */
+}
+.cb {
+    color: aliceblue;   
+    padding: 20px;
+    border-right: 1.5px solid rgb(78, 73, 73);
+    text-align: center;
+    background-color:  #303655;
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center;
+    font-size: 17px;
+   
+}
+.footer{
+    color: #6F90AF;   
+    padding: 20px;
+    border: 0px;
+    border-right: 1.5px solid rgb(78, 73, 73);
+    text-align: center;
+    background-color:  #303655;
+
+}
+
+
+body{
+    color: aliceblue;
+}
+.action-item{
+    border-radius: 70px;
+    padding: 5px;
+    background-color: aliceblue ;
+}
+/* Example: Custom CSS for Clarity filter box */
+.btn1 {
+    background-color: #6F90AF; /* Blue background */
+    border: 1px solid rgb(0, 0, 0);
+    color: rgb(0, 0, 0); /* White text */
+    padding:  8px 12px; /* Some padding */
+    font-size: 20px; /* Set a font size */
+    font-family: Poppins;
+    cursor: pointer; /* Mouse pointer on hover */
+    margin-left: 1140px;
+    border-radius: 4px;
+  }
+  
+  /* Darker background on mouse-over */
+  .btn1:hover {
+    background-color:#516e88; /* Blue background */
+    
+  }
+  
+  .container{
+    display:flex;
+    align-items: center;
+    gap:1050px;
+  }
+  
+
+
+
+  
+  
+
+  
+
+  

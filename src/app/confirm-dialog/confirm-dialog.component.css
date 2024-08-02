@@ -1,0 +1,77 @@
+/* Example styles for clr-modal with class 'r' within a specific component */
+
+/* Modal dialog */
+.backdrop {
+    background-color: rgba(0, 0, 0, 0.9);
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1000;
+  }
+  /* .r{
+    width: 400px;
+    max-width: 90%; 
+    background-color: white;
+    border: 20px solid #464040;
+    box-shadow: 0 4px 8px rgba(15, 15, 15, 0.1);
+    border-radius: 5px;
+  } */
+  
+  /* Modal title */
+  .r .modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: #0a162e;
+    text-align: center;
+ 
+    color: #ffffff;
+   
+  }
+  
+  /* Modal body */
+  .r .modal-body {
+    color: #fdfafa;
+    line-height: 1.5;
+    padding: 15px;
+  }
+  
+  /* Modal footer */
+  .r .modal-footer {
+    text-align: right;
+    padding: 15px;
+    border-top: 1px solid #ccc;
+  }
+  
+  /* Modal buttons */
+  .r .modal-footer button {
+    margin-left: 10px;
+  }
+  
+  /* Customize button colors */
+  .r .btn-outline {
+    color: #c5c5c5;
+    border-color: #333;
+    border-radius: 25px;
+    padding: 5px;
+  }
+  
+  .r .btn-outline:hover {
+    background-color: #333;
+    color: white;
+  }
+  
+  .r .btn-danger {
+    background-color: #256fac;
+    border-color: #ebf5f4;
+    color: white;
+    border-radius: 25px;
+    padding: 5px;
+  }
+  
+  .r .btn-danger:hover {
+    background-color: #316466;
+    border-color: #294746;
+  }
+  

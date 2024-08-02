@@ -1,0 +1,44 @@
+<ng-container *ngIf="showReportIssue === false">
+
+  <div class="button-container">
+ 
+  <button class="btn" (click)="showReportIssue = true"  *ngIf="authService.currentUserRole==='tester'" >Add</button>
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <button  (click)="logout()" class="btn1" > <i class="fa fa-close"></i> logout </button>
+  
+</div>
+<br>
+
+  <clr-datagrid style="font-family: Poppins;">
+    <clr-dg-column [clrDgField]="'issueNo'" [clrDgColType]="'number'"  class="h">Issue No</clr-dg-column>
+    <clr-dg-column [clrDgField]="'projectid'" class="h">Project Number</clr-dg-column>
+    <clr-dg-column [clrDgField]="'type'" class="h">Type</clr-dg-column>
+    <clr-dg-column [clrDgField]="'title'" class="h">  Title</clr-dg-column>
+    <clr-dg-column [clrDgField]="'description'" class="h">  Description</clr-dg-column>
+    <clr-dg-column [clrDgField]="'priority'" class="h">   Priority</clr-dg-column>
+  
+
+    <clr-dg-column  class="h" *ngIf="authService.currentUserRole==='tester'"> Resolve  </clr-dg-column>
+
+    <clr-dg-row *clrDgItems="let issue of issues" >
+      	
+      <clr-dg-cell class="cb" (click)="viewBugDetails(issue.issueNo)">{{issue.issueNo}}</clr-dg-cell>
+      <clr-dg-cell class="cb" (click)="viewBugDetails(issue.issueNo)">{{issue.projectid}}</clr-dg-cell>
+      <clr-dg-cell class="cb" (click)="viewBugDetails(issue.issueNo)">{{issue.type}}</clr-dg-cell>
+      <clr-dg-cell class="cb" (click)="viewBugDetails(issue.issueNo)">{{issue.title}}</clr-dg-cell>
+      <clr-dg-cell class="cb" (click)="viewBugDetails(issue.issueNo)">{{issue.description}}</clr-dg-cell>
+      <clr-dg-cell class="cb" (click)="viewBugDetails(issue.issueNo)">
+        <span class="label" [class.label-danger]="issue.priority === 'high'">{{issue.priority}}</span>
+      </clr-dg-cell>
+      <clr-dg-cell class="cb" *ngIf="authService.currentUserRole==='tester'" >
+        		
+        <button class="action-item" (click)="selectedIssue = issue">Resolve</button>	
+      </clr-dg-cell>	
+    </clr-dg-row>
+
+    <clr-dg-footer class="footer" >{{issues.length}} issues</clr-dg-footer>
+  </clr-datagrid>
+</ng-container>		
+<app-issue-report *ngIf="showReportIssue == true" (formClose)="onCloseReport()"></app-issue-report>
+<app-confirm-dialog  class="c" *ngIf="selectedIssue"[issueNo]="selectedIssue.issueNo"(confirm)="onConfirm($event)"></app-confirm-dialog>	     
+
